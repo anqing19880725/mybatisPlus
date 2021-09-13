@@ -1,6 +1,8 @@
 package com.dianxiao.mybatisplus.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.dianxiao.mybatisplus.enums.AgeEnum;
+import com.dianxiao.mybatisplus.enums.StatusEnum;
 import lombok.Data;
 
 import java.util.Date;
@@ -8,13 +10,13 @@ import java.util.Date;
 @Data
 @TableName(value = "user")
 public class User {
-//    @TableId(value="id")
+    //    @TableId(value="id")
 //    @TableId(type = IdType.NONE)
     @TableId
     private String id;
-    @TableField(value = "name",select = false)
+    @TableField(value = "name", select = false)
     private String title;
-    private Integer age;
+    private AgeEnum age;
     @TableField(exist = false)
     private String gender;
 //    private Product product;
@@ -24,6 +26,12 @@ public class User {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    @Version
+    private Integer version;
+
+    @TableField(value = "status")
+    private StatusEnum statusEnum;
 
 
 }

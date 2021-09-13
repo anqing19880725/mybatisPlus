@@ -29,7 +29,12 @@ class UserMapperTest {
     @Test
     void update(){
         User user = mapper.selectById(7);
-        user.setTitle("梅西");
+        user.setTitle("一号");
+
+        User user1 = mapper.selectById(7);
+        user1.setTitle("二号");
+
+        mapper.updateById(user1);
         mapper.updateById(user);
     }
 
