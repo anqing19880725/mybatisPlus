@@ -14,9 +14,11 @@ public class User {
 //    @TableId(type = IdType.NONE)
     @TableId
     private String id;
-    @TableField(value = "name", select = false)
+    //    @TableField(value = "name", select = false)
+    @TableField(value = "name")
     private String title;
-    private AgeEnum age;
+//    private AgeEnum age;
+    private Integer age;
     @TableField(exist = false)
     private String gender;
 //    private Product product;
@@ -32,6 +34,9 @@ public class User {
 
     @TableField(value = "status")
     private StatusEnum statusEnum;
+
+    //    @TableLogic
+    private Integer deleted;
 
 
 }
